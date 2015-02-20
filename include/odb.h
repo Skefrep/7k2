@@ -84,7 +84,7 @@ public:
    void  open(const char*, int bufferAll=0, int importRecSpec=0);
    void  open_from_buf(char*, int importRecSpec=0);
 
-	char* read(long=0);
+	char* read(unsigned long=0);
 	void  go(long recNo)    { cur_recno=recNo; }
 	void  close();
 

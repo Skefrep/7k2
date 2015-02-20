@@ -317,7 +317,7 @@ int GameFileArray::menu(int actionMode, int *recno)
 		browse_recno = 1;
 		for( i=1 ; i<=size() ; i++ )
 		{
-			if( stricmp(last_file_name, game_file_array[i]->file_name)==0 )
+			if( _stricmp(last_file_name, game_file_array[i]->file_name)==0 )
 			{
 				browse_recno = i;
 				break;
@@ -985,7 +985,7 @@ int GameFileArray::save_new_game(const char* fileName)
 			gameFilePtr = game_file_array[gameFileRecno];
 
 			// ###### begin Gilbert 31/10 ######//
-			if( stricmp(gameFilePtr->file_name, gameFile.file_name)==0 )      // if this file name already exist
+			if( _stricmp(gameFilePtr->file_name, gameFile.file_name)==0 )      // if this file name already exist
 			// ###### end Gilbert 31/10 ######//
 			{
 				addFlag=0;

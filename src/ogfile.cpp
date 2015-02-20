@@ -394,7 +394,7 @@ void GameFile::set_file_name(const char *path, const char *extension)
 
 		// if( memcmp(gameFile->file_name, str, NAME_PREFIX_LEN)==0 )
 		// if( strnicmp(gameFile->file_name, str, strLen )==0 )
-		if( strnicmp(gameFile->file_name, str, strLen )==0 )
+		if( _strnicmp(gameFile->file_name, str, strLen )==0 )
 		{
 			//------------------------------------------------//
 			//

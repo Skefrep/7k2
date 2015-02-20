@@ -1076,7 +1076,7 @@ void NationBase::next_month()
 		change_reputation((float)0.5);
 	// 15 points per year if viking FIRM_BASE
 	if( reputation < 15 )
-		change_reputation( god_res[GOD_VIKING]->nation_prayer_count(nation_recno)*(15.0/12/MAX_WORKER) );
+		change_reputation( god_res[GOD_VIKING]->nation_prayer_count(nation_recno)*((float)15.0/12/MAX_WORKER) );
 	// ###### patch end Gilbert 29/3 #######//
 }
 //---------- End of function NationBase::next_month --------//

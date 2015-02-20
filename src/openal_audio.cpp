@@ -75,7 +75,7 @@ static inline long ratio_to_millibels(float ratio)
    if (ratio == 0.f)
       return -10000;
 
-   return (2000.f * log(ratio) / log10 + .5f);
+   return (long)roundf(2000.f * log(ratio) / log10 + .5f);
 }
 
 /* panning is in [-10,000; 10,000] */
@@ -659,7 +659,7 @@ DsVolume OpenALAudio::get_loop_wav_volume(int id)
       gain *= 1.f - float(sc->fade_frames_played) / sc->fade_frames;
 
    return DsVolume(ratio_to_millibels(gain),
-		   (position[0] / PANNING_MAX_X) * 10000.f + .5f);
+	   (long)roundf((position[0] / PANNING_MAX_X) * 10000.f + .5f));
 }
 
 int OpenALAudio::is_loop_wav_fading(int id)
@@ -771,7 +771,7 @@ void OpenALAudio::toggle_wav(int wav_flag)
    if (!wav_flag)
       this->stop_wav();
 
-   this->wav_flag = wav_flag;
+   this->wav_flag = (wav_flag != 0);
 }
 
 void OpenALAudio::toggle_cd(int cdFlag)
@@ -924,7 +924,7 @@ void OpenALAudio::StreamContext::apply_fading(void *buffer, size_t frames)
 	    for (int c = 0; c < ch; c++)
 	    {
 	       uint8_t v = u8buf[n * ch + c];
-	       u8buf[n * ch + c] = f * (v - 128) + 128 + .5f;
+	       u8buf[n * ch + c] = (uint8_t)roundf(f * (v - 128) + 128 + .5f);
 	    }
 
 	    f += incr;
@@ -938,7 +938,7 @@ void OpenALAudio::StreamContext::apply_fading(void *buffer, size_t frames)
 	 for (n = 0; n < frames; n++)
 	 {
 	    for (int c = 0; c < ch; c++)
-	       s16buf[n * ch + c] = f * s16buf[n * ch + c] + .5f;
+	       s16buf[n * ch + c] = (int16_t)roundf(f * s16buf[n * ch + c] + .5f);
 
 	    f += incr;
 	    f = MAX(f, 0.f);

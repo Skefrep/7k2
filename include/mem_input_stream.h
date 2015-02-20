@@ -34,7 +34,7 @@ public:
    MemInputStream();
    ~MemInputStream();
    void open(void *data, size_t length, bool own_data = true);
-   long read(void *buffer, long length);
+   long read(void *buffer, unsigned long length);
    bool seek(long offset, int whence);
    long tell();
    void close();

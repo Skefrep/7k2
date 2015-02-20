@@ -34,6 +34,7 @@
 #include <gamedef.h>
 #include <malloc.h>
 #include <oerror.h>
+#include <skefunctions.h>
 
 //-------- define standard type ---------//
 

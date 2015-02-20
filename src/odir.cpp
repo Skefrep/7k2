@@ -230,6 +230,6 @@ int Directory::read(const char *fileSpec, int sortName)
 //
 static int sort_file_function( const void *a, const void *b )
 {
-	return strcmpi( ((FileInfo*)a)->name, ((FileInfo*)b)->name );
+	return _strcmpi( ((FileInfo*)a)->name, ((FileInfo*)b)->name );
 }
 //------- End of function sort_file_function ------//

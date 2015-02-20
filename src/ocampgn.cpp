@@ -331,9 +331,9 @@ void Campaign::init_new_campaign()
 {
 	//----- init random seed -------//
 
-	int randomSeed;
-	randomSeed = time(NULL);
-	randomSeed = (int) _rotr( randomSeed, 4 );
+	unsigned long randomSeed;
+	randomSeed = static_cast<unsigned long>(time(NULL));
+	randomSeed = (unsigned long) _rotr( randomSeed, 4 );
 
 	if( randomSeed < 0 )
 		randomSeed = ~randomSeed;

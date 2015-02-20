@@ -534,20 +534,20 @@ float FirmLishorr::bullet_damage()
 	if (GAME_VERSION <= 101)
 	{
 		if (nation_recno)
-			return ((LISHORR_BULLET_DAMAGE * 
+			return (float)((LISHORR_BULLET_DAMAGE * 
 				( 6 + (tech_res[TECH_LISHORR]->get_nation_tech_level(nation_recno)<<weatherFactor) ))
 				>>3);
 		else
-			return (LISHORR_BULLET_DAMAGE * weatherFactor);
+			return (float)(LISHORR_BULLET_DAMAGE * weatherFactor);
 	}
 	else
 	{
 		if (nation_recno)
-			return ((LISHORR_BULLET_DAMAGE *
+			return (float)((LISHORR_BULLET_DAMAGE *
 				( 6 + (tech_res[TECH_LISHORR]->get_nation_tech_level(nation_recno)<<weatherFactor) ))
 				>>2);
 		else
-			return (LISHORR_BULLET_DAMAGE * 2 *weatherFactor);
+			return (float)(LISHORR_BULLET_DAMAGE * 2 *weatherFactor);
 	}
 }
 //------ end of function FirmLishorr::bullet_damage -------//

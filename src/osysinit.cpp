@@ -485,7 +485,6 @@ int Sys::set_config_dir()
 #else // WINDOWS
    const char *home_env_var = "USERPROFILE";
 #endif
-   int r;
 
    // Find the path for the config directory--this is based on the default
    // location for the logged in user.

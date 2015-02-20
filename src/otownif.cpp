@@ -1644,7 +1644,7 @@ void Town::detect_edit_mode()
 			{
 				// ##### begin Gilbert 6/7 #######//
 				for( i = 10; i > 0 && population < MAX_TOWN_POPULATION; --i )
-					inc_pop(loyalty);
+					inc_pop((int)roundf(loyalty));
 				// ##### end Gilbert 6/7 #######//
 				auto_set_layout();
 			}

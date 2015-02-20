@@ -39,21 +39,21 @@ public:
    bool skip(size_t len);
    bool check_record_size(uint16_t expected_size);
 
-   template <typename FileT, typename MemT>
-   bool read(MemT *v)
-   {
-      FileT val;
+	template <typename FileT, typename MemT>
+	bool read(MemT *v)
+	{
+		FileT val;
 
-      if (!this->ok)
-	 return false;
+		if (!this->ok)
+			return false;
 
-      if (read_le(&this->is, &val))
-	 *v = val;
-      else
-	 this->ok = false;
+		if (read_le(&this->is, &val))
+			*v = val;
+		else
+			this->ok = false;
 
-      return this->ok;
-   }
+		return this->ok;
+	}
 
    template <typename T>
    bool read(T **v)

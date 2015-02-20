@@ -153,7 +153,7 @@ public:
 	//---- functions for patrol (moving out) -----//
 
 	void		patrol(short patrolType = 0);
-	int		patrol_all_soldier(int overseerRecno = 0, char patrolType = 0);
+	int		patrol_all_soldier(int overseerRecno = 0, short patrolType = 0);
 	void 		reset_unit_home_camp(int firmRecno);
 
 	//------------ overseer & soldier functions -----------//

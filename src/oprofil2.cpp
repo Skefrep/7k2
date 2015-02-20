@@ -638,7 +638,7 @@ int PlayerProfile::register_menu()
 				int i;
 				for( i = 0; i < profileCount; ++i )
 				{
-					if( stricmp( profileArray[i].player_name, keyinPlayerName ) == 0 )
+					if( _stricmp( profileArray[i].player_name, keyinPlayerName ) == 0 )
 					{
 						// box.msg( "Same profile has already been created" );
 						box.msg( text_game_menu.str_profile_error_dup() );
@@ -821,7 +821,7 @@ int PlayerProfile::register_menu()
 				remove( full_path );
 				// ###### patch end Gilbert 12/4 #######//
 
-				if(stricmp( file_name, profileArray[selectedProfile-1].file_name) == 0)
+				if(_stricmp( file_name, profileArray[selectedProfile-1].file_name) == 0)
 				{
 					// deleting current profile, unregister profile
 					player_name[0] = '\0';

@@ -4312,7 +4312,7 @@ static void draw_cubic_plane(int zoomX, int zoomY, LocationCorners lc, UCHAR col
 	int lineCountMod4 = 0;
 #define UVMULTIPLIER 4
 #define UVMULTIPLIER_SHIFT 2
-	long rowU, v;
+	//long rowU, v;
 	static long incU[lineCountPeriod] = { -2,  6, -2, -2 };
 	// static long incV[lineCountPeriod] = {  2,  2,  2,  2 };
 	int rowX = zoomX + ZOOM_X1;
@@ -4323,9 +4323,9 @@ static void draw_cubic_plane(int zoomX, int zoomY, LocationCorners lc, UCHAR col
 	err_when(ZOOM_Z_WIDTH != 0 || ZOOM_Z_HEIGHT != -1);
 
 	// variable for inner loop
-	long u;
-	int x,y;
-	long z, du1zM2, du2zM2, du3zM4D3;
+	//long u;
+	//int x,y;
+	//long z, du1zM2, du2zM2, du3zM4D3;
 
 	short *bufPtr = vga_back.buf_ptr();
 	long	bufPitch = vga_back.buf_pitch();

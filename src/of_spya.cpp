@@ -25,6 +25,7 @@
 #include <oinfo.h>
 #include <otown.h>
 #include <of_spy.h>
+#include <math.h>
 
 //--------- Begin of function FirmSpy::process_ai ---------//
 
@@ -198,7 +199,7 @@ void FirmSpy::think_spy_action()
 
 	if( nationPtr->reputation < 0 )
 	{
-		if( misc.random(-nationPtr->reputation/5) != 0 )
+		if( misc.random((int)roundf(-nationPtr->reputation/5)) != 0 )
 			return;
 	}
 

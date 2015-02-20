@@ -34,7 +34,7 @@ public:
    ~FileInputStream();
    bool open(File *file, bool own_file = true);
    bool open(const char *file_name);
-   long read(void *buffer, long length);
+   long read(void *buffer, unsigned long length);
    bool seek(long offset, int whence);
    long tell();
    void close();

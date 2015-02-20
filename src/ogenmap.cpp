@@ -913,7 +913,7 @@ void World::smooth_altitude( Plasma &plasma )
 					w += coeff[dxy];
 				}
 
-				plasma.plot( x, y, sum/w );
+				plasma.plot( x, y, SkeFunctions::s_longToShort(sum/w) );
 			}
 		}
 	}

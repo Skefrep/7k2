@@ -690,7 +690,7 @@ void FirmCamp::patrol(short patrolType)
 // return 1 if there is enough space for patroling all soldiers
 // return 0 otherwise
 //
-int FirmCamp::patrol_all_soldier(int overseerRecno, char patrolType)
+int FirmCamp::patrol_all_soldier(int overseerRecno, short patrolType)
 {
 	err_when(!soldier_array);    // this function shouldn't be called if this firm does not need soldier
 

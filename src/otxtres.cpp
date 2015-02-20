@@ -298,7 +298,7 @@ char* TextResource::format(double inNum, int formatType)
    char   *floatStr;
    int    i, intDigit, sign;    // intDigit = no. of integer digits
 
-   floatStr = fcvt( inNum, MONEY_DEC_PLACE, &intDigit, &sign );
+   floatStr = _fcvt( inNum, MONEY_DEC_PLACE, &intDigit, &sign );
 
    #ifdef DEBUG
       if( intDigit > 29 )            // integer digits can't exceed 29
@@ -382,7 +382,7 @@ char* TextResource::format(int inNum, int formatType)
    else
       sign  = 0;
 
-   longStr  = ltoa( inNum, longBuf, 10 );
+   longStr  = _ltoa( inNum, longBuf, 10 );
    intDigit = strlen(longStr);  // no. of integer digits
 
    //--------- negetive bracket ------------//
@@ -443,7 +443,7 @@ char* TextResource::roman_number(int inNum)
 	}
 
 	char deciStr[12];
-	itoa( inNum, deciStr, 10 );
+	_itoa( inNum, deciStr, 10 );
 
 	int deciLen = strlen( deciStr );
 

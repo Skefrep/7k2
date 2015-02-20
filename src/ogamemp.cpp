@@ -204,7 +204,7 @@ struct MpStructSeedStr : public MpStructBase
 
 	MpStructSeedStr(long l) : MpStructBase(MPMSG_RANDOM_SEED_STR)
 	{
-		ltoa(l, seed_str, 10);
+		_ltoa(l, seed_str, 10);
 	}
 };
 
@@ -1785,7 +1785,7 @@ int Game::mp_select_option(NewNationPara *nationPara, int *mpPlayerCount)
 	const int mapIdSize = 11;		// enough to hold a dword in decimal
 	char mapIdStr[mapIdSize+1];
 	info.init_random_seed(0);
-	ltoa( info.random_seed , mapIdStr, 10);
+	_ltoa( info.random_seed , mapIdStr, 10);
 	// GetA mapIdField;
 
 	MpStructSeedStr msgSeedStr(info.random_seed);
@@ -4531,7 +4531,7 @@ int Game::mp_select_load_option(char *fileName)
 	const int mapIdSize = 11;		// enough to hold a dword in decimal
 	char mapIdStr[mapIdSize+1];
 	// info.init_random_seed(0);
-	ltoa( info.random_seed , mapIdStr, 10);
+	_ltoa( info.random_seed , mapIdStr, 10);
 	// GetA mapIdField;
 
 	MpStructSeedStr msgSeedStr(info.random_seed);

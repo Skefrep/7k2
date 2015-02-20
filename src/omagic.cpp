@@ -812,10 +812,10 @@ FINISH11:			add esi, x_inc			//point = point + x_inc;
 #else
 				{
 					unsigned short *edi = base + (mode_offset / 2);
-					unsigned char cl = *(edi + 4);
+					unsigned char cl = (unsigned char)*(edi + 4);
 					prev_r = R2 << cl;
 					prev_g = G2 << 5;
-					cl = *(edi + 5);
+					cl = (unsigned char)*(edi + 5);
 					prev_b = B2 << cl;
 					*point = prev_r | prev_g | prev_b;
 					y_count += y_inc;
@@ -892,7 +892,7 @@ FINISH12:			add esi, x_inc			//point = point + x_inc;
 #else
 				{
 					unsigned short *edi = base + (mode_offset / 2);
-					unsigned char cl = *(edi + 4);
+					unsigned char cl = (unsigned char)*(edi + 4);
 					prev_r = *edi;
 					short ax = (static_cast<unsigned short>(*point & prev_r) >> cl) + temp_r;
 					if (!(ax > 0x1F))
@@ -905,7 +905,7 @@ FINISH12:			add esi, x_inc			//point = point + x_inc;
 					{
 						prev_g = ax << 5;
 					}
-					cl = *(edi + 5);
+					cl = (unsigned char)*(edi + 5);
 					prev_b = *(edi + 2);
 					ax = (static_cast<unsigned short>(*point & prev_b) >> cl) + temp_b;
 					if (!(ax > 0x1F))
@@ -992,10 +992,10 @@ FINISH21:			add esi, line			//point = point + line;
 #else
 				{
 					unsigned short *edi = base + (mode_offset / 2);
-					unsigned char cl = *(edi + 4);
+					unsigned char cl = (unsigned char)*(edi + 4);
 					prev_r = R2 << cl;
 					prev_g = G2 << 5;
-					cl = *(edi + 5);
+					cl = (unsigned char)*(edi + 5);
 					prev_b = B2 << cl;
 					*point = prev_r | prev_g | prev_b;
 					x_count += x_inc;
@@ -1072,7 +1072,7 @@ FINISH22:			add esi, line			//point = point + line;
 #else
 				{
 					unsigned short *edi = base + (mode_offset / 2);
-					unsigned char cl = *(edi + 4);
+					unsigned char cl = (unsigned char)*(edi + 4);
 					prev_r = *edi;
 					short ax = (static_cast<unsigned short>(*point & prev_r) >> cl) + temp_r;
 					if (!(ax > 0x1F))
@@ -1085,7 +1085,7 @@ FINISH22:			add esi, line			//point = point + line;
 					{
 						prev_g = ax << 5;
 					}
-					cl = *(edi + 5);
+					cl = (unsigned char)*(edi + 5);
 					prev_b = *(edi + 2);
 					ax = (static_cast<unsigned short>(*point & prev_b) >> cl) + temp_b;
 					if (!(ax > 0x1F))
@@ -1354,10 +1354,10 @@ FINISH11:			add esi, x_inc			//point = point + x_inc;
 #else
 				{
 					unsigned short *edi = base + (mode_offset / 2);
-					unsigned char cl = *(edi + 4);
+					unsigned char cl = (unsigned char)*(edi + 4);
 					prev_r = R2 << cl;
 					prev_g = G2 << 5;
-					cl = *(edi + 5);
+					cl = (unsigned char)*(edi + 5);
 					prev_b = B2 << cl;
 					*point = prev_r | prev_g | prev_b;
 					y_count += y_inc;
@@ -1434,7 +1434,7 @@ FINISH12:			add esi, x_inc			//point = point + x_inc;
 #else
 				{
 					unsigned short *edi = base + (mode_offset / 2);
-					unsigned char cl = *(edi + 4);
+					unsigned char cl = (unsigned char)*(edi + 4);
 					prev_r = *edi;
 					short ax = (static_cast<unsigned short>(*point & prev_r) >> cl) + temp_r;
 					if (!(ax > 0x1F))
@@ -1447,7 +1447,7 @@ FINISH12:			add esi, x_inc			//point = point + x_inc;
 					{
 						prev_g = ax << 5;
 					}
-					cl = *(edi + 5);
+					cl = (unsigned char)*(edi + 5);
 					prev_b = *(edi + 2);
 					ax = (static_cast<unsigned short>(*point & prev_b) >> cl) + temp_b;
 					if (!(ax > 0x1F))
@@ -1626,10 +1626,10 @@ FINISH21:			add esi, line			//point = point + line;
 #else
 				{
 					unsigned short *edi = base + (mode_offset / 2);
-					unsigned char cl = *(edi + 4);
+					unsigned char cl = (unsigned char)*(edi + 4);
 					prev_r = R2 << cl;
 					prev_g = G2 << 5;
-					cl = *(edi + 5);
+					cl = (unsigned char)*(edi + 5);
 					prev_b = B2 << cl;
 					*point = prev_r | prev_g | prev_b;
 					x_count += x_inc;
@@ -1706,7 +1706,7 @@ FINISH22:			add esi, line			//point = point + line;
 #else
 				{
 					unsigned short *edi = base + (mode_offset / 2);
-					unsigned char cl = *(edi + 4);
+					unsigned char cl = (unsigned char)*(edi + 4);
 					prev_r = *edi;
 					short ax = (static_cast<unsigned short>(*point & prev_r) >> cl) + temp_r;
 					if (!(ax > 0x1F))
@@ -1719,7 +1719,7 @@ FINISH22:			add esi, line			//point = point + line;
 					{
 						prev_g = ax << 5;
 					}
-					cl = *(edi + 5);
+					cl = (unsigned char)*(edi + 5);
 					prev_b = *(edi + 2);
 					ax = (static_cast<unsigned short>(*point & prev_b) >> cl) + temp_b;
 					if (!(ax > 0x1F))
@@ -2123,7 +2123,7 @@ void Magic::draw_circle(VgaBuf *vgabuf, int x1, int y1, int radius, char r_x, ch
 						short R1, short G1, short B1, int mode, int dir) 
 {
 	int i, j, line = 2*vgabuf->buf_pitch();
-	int mag, temp_mag, up_level;
+	unsigned int mag, temp_mag, up_level;
 	short *point, *temp_point;
 	short temp_r, temp_g, temp_b;
 	short prev_r, prev_g, prev_b;
@@ -2561,7 +2561,7 @@ D_PLUS:
 #else
 		{
 			unsigned short *edi = base1 + (mode_offset / 2);
-			unsigned char cl = *(edi + 4);
+			unsigned char cl = (unsigned char)*(edi + 4);
 			prev_r = *edi;
 			short ax = (static_cast<unsigned short>(*point & prev_r) >> cl) + temp_r;
 			if (!(ax > 0x1F))
@@ -2574,7 +2574,7 @@ D_PLUS:
 			{
 				prev_g = ax << 5;
 			}
-			cl = *(edi + 5);
+			cl = (unsigned char)*(edi + 5);
 			prev_b = *(edi + 2);
 			ax = (static_cast<unsigned short>(*point & prev_b) >> cl) + temp_b;
 			if (!(ax > 0x1F))
@@ -2679,7 +2679,7 @@ void Magic::draw_circle2(VgaBuf *vgabuf, int x1, int y1, int radius, char r_x, c
 						short R1, short G1, short B1, int mode, int dir) 
 {
 	int i, j, line = 2*vgabuf->buf_pitch();
-	int mag, temp_mag, up_level;
+	unsigned int mag, temp_mag, up_level;
 	short *point, *temp_point;
 	short temp_r, temp_g, temp_b;
 	short prev_r, prev_g, prev_b;
@@ -3137,7 +3137,7 @@ D_PLUS:
 #else
 		{
 			unsigned short *edi = base1 + (mode_offset / 2);
-			unsigned char cl = *(edi + 4);
+			unsigned char cl = (unsigned char)*(edi + 4);
 			prev_r = *edi;
 			short ax = (static_cast<unsigned short>(*point & prev_r) >> cl) + temp_r;
 			if (!(ax > 0x1F))
@@ -3150,7 +3150,7 @@ D_PLUS:
 			{
 				prev_g = ax << 5;
 			}
-			cl = *(edi + 5);
+			cl = (unsigned char)*(edi + 5);
 			prev_b = *(edi + 2);
 			ax = (static_cast<unsigned short>(*point & prev_b) >> cl) + temp_b;
 			if (!(ax > 0x1F))

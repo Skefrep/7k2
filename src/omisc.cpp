@@ -685,7 +685,7 @@ char* Misc::format( int inNum, int formatType )
    else
       sign  = 0;
 
-   longStr  = ltoa( inNum, longBuf, 10 );
+   longStr  = _ltoa( inNum, longBuf, 10 );
    intDigit = strlen(longStr);  // no. of integer digits
 
    //--------- negetive bracket ------------//
@@ -754,7 +754,7 @@ char* Misc::format(double inNum, int formatType)
    char   *floatStr;
    int    i, intDigit, sign;    // intDigit = no. of integer digits
 
-   floatStr = fcvt( inNum, MONEY_DEC_PLACE, &intDigit, &sign );
+   floatStr = _fcvt( inNum, MONEY_DEC_PLACE, &intDigit, &sign );
 
    #ifdef DEBUG
       if( intDigit > 29 )            // integer digits can't exceed 29
@@ -830,7 +830,7 @@ char* Misc::num_to_str(int inNum)
 {
    static char strBuf[25];
 
-   return ltoa( inNum, strBuf, 10 );
+   return _ltoa( inNum, strBuf, 10 );
 }
 //---------- End of function Misc::format ---------//
 
@@ -998,7 +998,7 @@ long Misc::get_random_seed()
 //
 void Misc::randomize()
 {
-   set_random_seed(time(NULL));
+   set_random_seed((long)time(NULL));
 }
 //---------- End of function Misc::randomize ---------//
 

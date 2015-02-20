@@ -92,7 +92,7 @@ char* String::substr(int pos, int len)
 char* String::upper()
 {
    memcpy( work_buf, str_buf, len()+1 );
-   strupr( work_buf );
+   _strupr( work_buf );
 
    return work_buf;
 }
@@ -100,7 +100,7 @@ char* String::upper()
 char* String::lower(void)
 {
    memcpy( work_buf, str_buf, len()+1 );
-   strlwr( work_buf );
+   _strlwr( work_buf );
 
    return work_buf;
 }

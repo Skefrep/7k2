@@ -1461,7 +1461,7 @@ void Unit::detect_button()
 
 		if( button_transform_fort.detect() )
 		{
-			int fortressXLoc=-1, fortressYLoc;
+			int fortressXLoc=-1/*, fortressYLoc*/;
 
 //			short builderUnit[MAX_EXTRA_BUILDER];
 //			if(FirmMonsterFortress::check_transform_from_units(sprite_recno, fortressXLoc, fortressYLoc, builderUnit))

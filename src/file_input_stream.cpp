@@ -31,7 +31,7 @@ FileInputStream::~FileInputStream()
    this->close();
 }
 
-long FileInputStream::read(void *buffer, long length)
+long FileInputStream::read(void *buffer, unsigned long length)
 {
    if (this->file == NULL)
       return 0;
